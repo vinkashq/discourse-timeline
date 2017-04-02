@@ -1,0 +1,40 @@
+{{#unless skipHeader}}
+  <thead>
+    {{raw "topic-list-header" currentUser=currentUser
+                              canBulkSelect=canBulkSelect
+                              toggleInTitle=toggleInTitle
+                              hideCategory=hideCategory
+                              showPosters=showPosters
+                              showLikes=showLikes
+                              showOpLikes=showOpLikes
+                              showParticipants=showParticipants
+                              order=order
+                              ascending=ascending
+                              sortable=sortable
+                              bulkSelectEnabled=bulkSelectEnabled}}
+  </thead>
+{{/unless}}
+<tbody>
+  {{#each topics as |topic|}}
+    {{topic-list-item topic=topic
+                      bulkSelectEnabled=bulkSelectEnabled
+                      showTopicPostBadges=showTopicPostBadges
+                      hideCategory=hideCategory
+                      showPosters=showPosters
+                      showParticipants=showParticipants
+                      showLikes=showLikes
+                      showOpLikes=showOpLikes
+                      expandGloballyPinned=expandGloballyPinned
+                      expandAllPinned=expandAllPinned
+                      lastVisitedTopic=lastVisitedTopic
+                      selected=selected}}
+    {{#if topic.unread_post}}
+      <tr>
+        <td colspan="6">
+          {{mount-widget widget="post" args=topic.unread_post}}
+        </td>
+      </tr>
+    {{/if}}
+    {{raw "list/visited-line" lastVisitedTopic=lastVisitedTopic topic=topic}}
+  {{/each}}
+</tbody>
