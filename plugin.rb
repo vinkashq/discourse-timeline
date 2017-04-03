@@ -8,7 +8,7 @@ register_asset "stylesheets/timeline.scss"
 
 after_initialize do
 
-  ListableTopicSerializer.class_eval do
+  TopicListItemSerializer.class_eval do
 
     has_one :unread_post, serializer: PostSerializer, embed: :objects
 
