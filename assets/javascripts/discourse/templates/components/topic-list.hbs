@@ -29,9 +29,9 @@
                       lastVisitedTopic=lastVisitedTopic
                       selected=selected}}
     {{#if topic.unread_post}}
-      <tr>
+      <tr class="unread-post">
         <td colspan="6">
-          {{mount-widget widget="post" args=topic.unread_post}}
+          {{mount-widget widget="timeline-post" args=topic.unread_post}}
         </td>
       </tr>
     {{/if}}

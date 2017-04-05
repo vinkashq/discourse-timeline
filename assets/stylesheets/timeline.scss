@@ -26,3 +26,19 @@
   }
 
 }
+
+.boxed {
+
+  > .topic-body {
+    padding: 0;
+
+    > .regular {
+      margin-top: 0;
+    }
+  }
+
+}
+
+.unread-post > td {
+  padding-top: 0;
+}
