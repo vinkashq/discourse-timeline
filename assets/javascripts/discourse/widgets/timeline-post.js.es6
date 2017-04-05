@@ -104,10 +104,6 @@ createWidget('post-meta-data', {
 createWidget('post-contents', {
   buildKey: attrs => `post-contents-${attrs.id}`,
 
-  defaultState() {
-    return { repliesBelow: [] };
-  },
-
   buildClasses(attrs) {
     const classes = ['regular'];
     if (!this.state.repliesShown) {
@@ -119,9 +115,6 @@ createWidget('post-contents', {
   html(attrs, state) {
     let result = [new PostCooked(attrs, new DecoratorHelper(this))];
     result = result.concat(applyDecorators(this, 'after-cooked', attrs, state));
-
-    const extraState = { state: { repliesShown: !!state.repliesBelow.length } };
-    result.push(this.attach('post-menu', attrs, extraState));
 
     return result;
   }
