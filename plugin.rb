@@ -20,6 +20,10 @@ after_initialize do
       object.posts.find_by(post_number: last_read_post_number + 1)
     end
 
+    def include_excerpt?
+      false
+    end
+
   end
 
 end
