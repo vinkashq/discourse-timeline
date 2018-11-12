@@ -5,6 +5,7 @@
 # url: https://github.com/VinkasHQ/discourse-timeline
 
 register_asset "stylesheets/timeline.scss"
+register_svg_icon "trash" if respond_to?(:register_svg_icon)
 
 after_initialize do
 
