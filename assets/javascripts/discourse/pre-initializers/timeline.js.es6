@@ -24,7 +24,7 @@ export default {
           classes.push('has-excerpt');
         }
 
-        _.each(['liked', 'archived', 'bookmarked'],function(name) {
+        ['liked', 'archived', 'bookmarked'].forEach((name, index) => {
           if (topic.get(name)) {
             classes.push(name);
           }
